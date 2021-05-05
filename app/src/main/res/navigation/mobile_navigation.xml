@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/oompaLoompaListFragment2">
+    <fragment
+        android:id="@+id/oompaLoompaListFragment2"
+        android:name="com.example.napptilusandroidchallenge.OompaLoompaListFragment"
+        android:label="oompa_loompa_list_fragment"
+        tools:layout="@layout/oompa_loompa_list_fragment" />
+    <fragment
+        android:id="@+id/oompaLoompaDetailFragment"
+        android:name="com.example.napptilusandroidchallenge.OompaLoompaDetailFragment"
+        android:label="oompa_loompa_detail_fragment"
+        tools:layout="@layout/oompa_loompa_detail_fragment" />
+</navigation>
