@@ -8,6 +8,10 @@ class OompaLoompaListViewModel : ViewModel() {
 
     }
 
+    fun getOompaLoompaData() {
+       //TODO: API Call to get oompa loompa data
+    }
+
     override fun onCleared() {
         super.onCleared()
     }
