@@ -12,8 +12,6 @@ class OompaLoompaDetailFragment : Fragment() {
 
     private lateinit var binding: OompaLoompaDetailFragmentBinding
 
-    private lateinit var oompaLoompaDetailViewModel: OompaLoompaDetailViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,7 +22,7 @@ class OompaLoompaDetailFragment : Fragment() {
         val arguments = OompaLoompaDetailFragmentArgs.fromBundle(requireArguments())
 
         val oompaLoompaDetailViewModelFactory = OompaLoompaDetailViewModelFactory(arguments.oompaLoompaKey)
-        val oompaLoompaViewModel = ViewModelProvider(this, oompaLoompaDetailViewModelFactory).get(OompaLoompaDetailViewModel::class.java)
+        val oompaLoompaDetailViewModel = ViewModelProvider(this, oompaLoompaDetailViewModelFactory).get(OompaLoompaDetailViewModel::class.java)
 
         return binding.root
     }
