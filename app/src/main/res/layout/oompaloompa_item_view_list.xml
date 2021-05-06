@@ -7,11 +7,15 @@
         <variable
             name="oompaloompa"
             type="com.example.napptilusandroidchallenge.model.OompaLoompa" />
+        <variable
+            name="clickListener"
+            type="com.example.napptilusandroidchallenge.oompaloompalist.OompaLoompaListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(oompaloompa)}">
 
 
         <ImageView

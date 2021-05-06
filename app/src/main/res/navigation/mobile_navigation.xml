@@ -8,10 +8,20 @@
         android:id="@+id/oompaLoompaListFragment2"
         android:name="com.example.napptilusandroidchallenge.oompaloompalist.OompaLoompaListFragment"
         android:label="oompa_loompa_list_fragment"
-        tools:layout="@layout/oompa_loompa_list_fragment" />
+        tools:layout="@layout/oompa_loompa_list_fragment" >
+        <action
+            android:id="@+id/action_oompaLoompaListFragment_to_oompaLoompaDetailFragment"
+            app:destination="@id/oompaLoompaDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
+    </fragment>
     <fragment
         android:id="@+id/oompaLoompaDetailFragment"
         android:name="com.example.napptilusandroidchallenge.oompaloompadetail.OompaLoompaDetailFragment"
         android:label="oompa_loompa_detail_fragment"
-        tools:layout="@layout/oompa_loompa_detail_fragment" />
+        tools:layout="@layout/oompa_loompa_detail_fragment">
+        <argument
+            android:name="oompaLoompaKey"
+            app:argType="long"/>
+    </fragment>
 </navigation>

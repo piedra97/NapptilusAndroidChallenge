@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.napptilusandroidchallenge.model.OompaLoompa
 import com.example.napptilusandroidchallenge.databinding.OompaloompaItemViewListBinding
 
-class OompaLoompaAdapter : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolder>(
-    OompaLoompaDiffCallback()
-) {
+class OompaLoompaAdapter(val clickListener: OompaLoompaListener) : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolder>(OompaLoompaDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, clickListener)
     }
 
     override fun onCreateViewHolder(
@@ -26,8 +24,12 @@ class OompaLoompaAdapter : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolde
 
     class ViewHolder private constructor(val binding: OompaloompaItemViewListBinding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item: OompaLoompa) {
+        fun bind(
+            item: OompaLoompa,
+            clickListener: OompaLoompaListener
+        ) {
             binding.oompaloompa = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -52,4 +54,8 @@ class OompaLoompaDiffCallback : DiffUtil.ItemCallback<OompaLoompa>() {
         return oldItem == newItem
     }
 
+}
+
+class OompaLoompaListener(val clickListener: (oompaLoompaId: Long) -> Unit) {
+    fun onClick(oompaLoompa: OompaLoompa) = clickListener(oompaLoompa.id)
 }
