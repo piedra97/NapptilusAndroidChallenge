@@ -21,6 +21,7 @@ class OompaLoompaDetailFragment : Fragment() {
         // Inflate view and obtain an instance of the binding class
         binding = OompaLoompaDetailFragmentBinding.inflate(layoutInflater)
 
+        //TODO: Add ViewModelFactory initialization
         viewModel = ViewModelProvider(this).get(OompaLoompaDetailViewModel::class.java)
         return binding.root
     }
