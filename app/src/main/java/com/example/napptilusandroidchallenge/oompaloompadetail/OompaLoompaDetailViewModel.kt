@@ -1,4 +1,4 @@
-package com.example.napptilusandroidchallenge
+package com.example.napptilusandroidchallenge.oompaloompadetail
 
 import androidx.lifecycle.ViewModel
 

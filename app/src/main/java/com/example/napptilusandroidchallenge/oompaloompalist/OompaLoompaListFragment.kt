@@ -1,4 +1,4 @@
-package com.example.napptilusandroidchallenge
+package com.example.napptilusandroidchallenge.oompaloompalist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,7 +21,8 @@ class OompaLoompaListFragment : Fragment() {
         // Inflate view and obtain an instance of the binding class
         binding = OompaLoompaListFragmentBinding.inflate(layoutInflater)
 
-        val adapter = OompaLoompaAdapter()
+        val adapter =
+            OompaLoompaAdapter()
         binding.oompaloompaList.adapter = adapter
 
         viewModel = ViewModelProvider(this).get(OompaLoompaListViewModel::class.java)

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="oompaloompa"
-            type="com.example.napptilusandroidchallenge.OompaLoompa" />
+            type="com.example.napptilusandroidchallenge.model.OompaLoompa" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

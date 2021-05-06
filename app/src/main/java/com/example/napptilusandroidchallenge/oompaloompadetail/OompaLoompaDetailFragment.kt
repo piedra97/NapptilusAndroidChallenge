@@ -1,4 +1,4 @@
-package com.example.napptilusandroidchallenge
+package com.example.napptilusandroidchallenge.oompaloompadetail
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.napptilusandroidchallenge.databinding.OompaLoompaListFragmentBinding
+import com.example.napptilusandroidchallenge.databinding.OompaLoompaDetailFragmentBinding
 
 class OompaLoompaDetailFragment : Fragment() {
 
-    private lateinit var binding: OompaLoompaListFragmentBinding
+    private lateinit var binding: OompaLoompaDetailFragmentBinding
 
     private lateinit var viewModel: OompaLoompaDetailViewModel
 
@@ -19,7 +19,7 @@ class OompaLoompaDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate view and obtain an instance of the binding class
-        binding = OompaLoompaListFragmentBinding.inflate(layoutInflater)
+        binding = OompaLoompaDetailFragmentBinding.inflate(layoutInflater)
 
         viewModel = ViewModelProvider(this).get(OompaLoompaDetailViewModel::class.java)
         return binding.root

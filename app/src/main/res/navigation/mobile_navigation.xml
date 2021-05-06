@@ -6,12 +6,12 @@
     app:startDestination="@id/oompaLoompaListFragment2">
     <fragment
         android:id="@+id/oompaLoompaListFragment2"
-        android:name="com.example.napptilusandroidchallenge.OompaLoompaListFragment"
+        android:name="com.example.napptilusandroidchallenge.oompaloompalist.OompaLoompaListFragment"
         android:label="oompa_loompa_list_fragment"
         tools:layout="@layout/oompa_loompa_list_fragment" />
     <fragment
         android:id="@+id/oompaLoompaDetailFragment"
-        android:name="com.example.napptilusandroidchallenge.OompaLoompaDetailFragment"
+        android:name="com.example.napptilusandroidchallenge.oompaloompadetail.OompaLoompaDetailFragment"
         android:label="oompa_loompa_detail_fragment"
         tools:layout="@layout/oompa_loompa_detail_fragment" />
 </navigation>

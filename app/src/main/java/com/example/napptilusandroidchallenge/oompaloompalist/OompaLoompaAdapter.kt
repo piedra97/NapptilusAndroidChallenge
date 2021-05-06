@@ -1,13 +1,16 @@
-package com.example.napptilusandroidchallenge
+package com.example.napptilusandroidchallenge.oompaloompalist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.napptilusandroidchallenge.model.OompaLoompa
 import com.example.napptilusandroidchallenge.databinding.OompaloompaItemViewListBinding
 
-class OompaLoompaAdapter : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolder>(OompaLoompaDiffCallback()) {
+class OompaLoompaAdapter : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolder>(
+    OompaLoompaDiffCallback()
+) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
@@ -16,7 +19,9 @@ class OompaLoompaAdapter : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolde
 
     override fun onCreateViewHolder(
             parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent)
+        return ViewHolder.from(
+            parent
+        )
     }
 
     class ViewHolder private constructor(val binding: OompaloompaItemViewListBinding) : RecyclerView.ViewHolder(binding.root){
@@ -30,7 +35,9 @@ class OompaLoompaAdapter : ListAdapter<OompaLoompa, OompaLoompaAdapter.ViewHolde
              fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = OompaloompaItemViewListBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(
+                    binding
+                )
             }
         }
     }

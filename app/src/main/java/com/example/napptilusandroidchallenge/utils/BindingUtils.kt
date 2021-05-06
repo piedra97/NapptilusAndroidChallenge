@@ -1,8 +1,10 @@
-package com.example.napptilusandroidchallenge
+package com.example.napptilusandroidchallenge.utils
 
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.example.napptilusandroidchallenge.R
+import com.example.napptilusandroidchallenge.model.OompaLoompa
 
 class BindingUtils {
 
