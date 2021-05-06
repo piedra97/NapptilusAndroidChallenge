@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">NapptilusAndroidChallenge</string>
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="empty_list_message">No Oompa loompas found. Willy Woonka is going to be mad</string>
 </resources>

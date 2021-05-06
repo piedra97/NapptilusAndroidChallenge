@@ -37,9 +37,7 @@ class OompaLoompaAdapter(val clickListener: OompaLoompaListener) : ListAdapter<O
              fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = OompaloompaItemViewListBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(
-                    binding
-                )
+                return ViewHolder(binding)
             }
         }
     }

@@ -36,9 +36,19 @@ class OompaLoompaListFragment : Fragment() {
                 oompaLoompaListViewModel.onOompaLoompaDetailNavigated()
             }
         })
+
+        binding.viewModel = oompaLoompaListViewModel
+
         binding.oompaloompaList.adapter = adapter
 
-        //TODO Add observable with live data in api results and inside observer add submitList(it)
+        binding.lifecycleOwner = this
+
+        oompaLoompaListViewModel.response.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.submitList(it)
+            }
+        })
+
         return binding.root
 
     }
