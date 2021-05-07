@@ -12,29 +12,17 @@ import com.example.napptilusandroidchallenge.databinding.OompaLoompaListFragment
 
 class OompaLoompaListFragment : Fragment() {
 
-    private lateinit var binding: OompaLoompaListFragmentBinding
-
-    private lateinit var oompaLoompaListViewModel: OompaLoompaListViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate view and obtain an instance of the binding class
-        binding = OompaLoompaListFragmentBinding.inflate(layoutInflater)
+        val binding = OompaLoompaListFragmentBinding.inflate(layoutInflater)
 
-        oompaLoompaListViewModel = ViewModelProvider(this).get(OompaLoompaListViewModel::class.java)
+        val oompaLoompaListViewModel = ViewModelProvider(this).get(OompaLoompaListViewModel::class.java)
 
         val adapter = OompaLoompaAdapter(OompaLoompaListener { oompaLoompaId ->
             oompaLoompaListViewModel.onOompaLoompaClicked(oompaLoompaId)
-        })
-
-        oompaLoompaListViewModel.navigateOompaLoompaDetail.observe(viewLifecycleOwner, Observer { oompaloompa ->
-            oompaloompa?.let {
-                this.findNavController().navigate(
-                    OompaLoompaListFragmentDirections.actionOompaLoompaListFragmentToOompaLoompaDetailFragment(oompaloompa))
-                oompaLoompaListViewModel.onOompaLoompaDetailNavigated()
-            }
         })
 
         binding.viewModel = oompaLoompaListViewModel
@@ -43,9 +31,11 @@ class OompaLoompaListFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        oompaLoompaListViewModel.response.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                adapter.submitList(it)
+        oompaLoompaListViewModel.navigateOompaLoompaDetail.observe(viewLifecycleOwner, Observer { oompaloompa ->
+            oompaloompa?.let {
+                this.findNavController().navigate(
+                        OompaLoompaListFragmentDirections.actionOompaLoompaListFragmentToOompaLoompaDetailFragment(oompaloompa))
+                oompaLoompaListViewModel.onOompaLoompaDetailNavigated()
             }
         })
 

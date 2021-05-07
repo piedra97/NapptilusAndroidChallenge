@@ -10,14 +10,12 @@ import com.example.napptilusandroidchallenge.databinding.OompaLoompaDetailFragme
 
 class OompaLoompaDetailFragment : Fragment() {
 
-    private lateinit var binding: OompaLoompaDetailFragmentBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate view and obtain an instance of the binding class
-        binding = OompaLoompaDetailFragmentBinding.inflate(layoutInflater)
+        val binding = OompaLoompaDetailFragmentBinding.inflate(layoutInflater)
 
         val arguments = OompaLoompaDetailFragmentArgs.fromBundle(requireArguments())
 

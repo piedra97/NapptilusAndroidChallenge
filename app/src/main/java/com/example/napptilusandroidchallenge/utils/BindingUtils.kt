@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -12,6 +13,7 @@ import com.bumptech.glide.signature.ObjectKey
 import com.example.napptilusandroidchallenge.R
 import com.example.napptilusandroidchallenge.model.OompaLoompa
 import com.example.napptilusandroidchallenge.network.OompaLoompaApiStatus
+import com.example.napptilusandroidchallenge.oompaloompalist.OompaLoompaAdapter
 
 
 @BindingAdapter("oompaLoompaImage")
@@ -97,4 +99,10 @@ fun bindStatus(statusImageView: ImageView, status: OompaLoompaApiStatus?) {
             statusImageView.visibility = View.GONE
         }
     }
+}
+
+@BindingAdapter("oompaLoompaListData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<OompaLoompa>?) {
+    val adapter = recyclerView.adapter as OompaLoompaAdapter
+    adapter.submitList(data)
 }
