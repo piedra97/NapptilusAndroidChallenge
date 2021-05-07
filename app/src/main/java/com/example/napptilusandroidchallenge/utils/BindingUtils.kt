@@ -6,7 +6,9 @@ import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.signature.ObjectKey
 import com.example.napptilusandroidchallenge.R
 import com.example.napptilusandroidchallenge.model.OompaLoompa
 import com.example.napptilusandroidchallenge.network.OompaLoompaApiStatus
@@ -21,7 +23,8 @@ fun ImageView.setOompaLoompaImage(item: OompaLoompa?) {
                 .load(imgUri)
                 .apply(RequestOptions()
                         .placeholder(R.drawable.loading_animation)
-                        .error(R.drawable.ic_broken_image))
+                        .error(R.drawable.ic_broken_image)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(this)
     }
 }
