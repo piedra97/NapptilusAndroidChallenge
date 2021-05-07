@@ -41,13 +41,8 @@
 
             <TextView
                 android:id="@+id/name_placeholder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8"
-                android:textColor="#de000000"
+                style="@style/DataInfoPlaceHolderTextView"
                 android:layout_marginTop="@dimen/margin_16"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
@@ -56,11 +51,8 @@
 
             <TextView
                 android:id="@+id/oompaloompa_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8"
+                style="@style/DataInfoTextView"
                 android:layout_marginTop="@dimen/margin_16"
-                android:textColor="#de000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/name_placeholder"
@@ -70,13 +62,7 @@
 
             <TextView
                 android:id="@+id/lastname_placeholder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8"
-                android:textColor="#de000000"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:textStyle="bold"
+                style="@style/DataInfoPlaceHolderTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
@@ -85,11 +71,7 @@
 
             <TextView
                 android:id="@+id/oompaloompa_last_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginStart="@dimen/margin_8"
-                android:textColor="#de000000"
+                style="@style/DataInfoTextView"
                 app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/lastname_placeholder"
@@ -99,13 +81,7 @@
 
             <TextView
                 android:id="@+id/profession_placeholder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8"
-                android:textColor="#de000000"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:textStyle="bold"
+                style="@style/DataInfoPlaceHolderTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
@@ -114,11 +90,7 @@
 
             <TextView
                 android:id="@+id/oompaloompa_profession"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginStart="@dimen/margin_8"
-                android:textColor="#de000000"
+                style="@style/DataInfoTextView"
                 app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/profession_placeholder"
