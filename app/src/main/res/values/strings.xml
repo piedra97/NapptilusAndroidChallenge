@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">NapptilusAndroidChallenge</string>
-    <string name="empty_list_message">No Oompa loompas found. Willy Woonka is going to be mad</string>
+    <string name="last_name_text_placeholder">Last name:</string>
+    <string name="profession_text_placeholder">Profession:</string>
+    <string name="gender_text_placeholder">Gender:</string>
+    <string name="age_text_placeholder">Age:</string>
+    <string name="email_text_placeholder">Email:</string>
+    <string name="country_text_placeholder">Country:</string>
+    <string name="height_text_placeholder">Height:</string>
+    <string name="favorite_food_text_placeholder">Favorite food:</string>
+    <string name="favorite_color_text_placeholder">Favorite color:</string>
+    <string name="name_text_placeholder">Name:</string>
 </resources>

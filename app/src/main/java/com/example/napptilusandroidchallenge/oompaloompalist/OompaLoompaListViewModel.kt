@@ -6,15 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.napptilusandroidchallenge.model.OompaLoompa
 import com.example.napptilusandroidchallenge.network.OompaLoompaApi
+import com.example.napptilusandroidchallenge.network.OompaLoompaApiStatus
 import kotlinx.coroutines.launch
 import java.lang.Exception
-
-enum class OompaLoompaApiStatus {
-    LOADING,
-    ERROR,
-    EMPTY,
-    DONE
-}
 
 class OompaLoompaListViewModel : ViewModel() {
 
@@ -39,10 +33,7 @@ class OompaLoompaListViewModel : ViewModel() {
             _status.value = OompaLoompaApiStatus.LOADING
             try {
                 _response.value = OompaLoompaApi.retrofitService.getOompaLoompasData().results
-                _status.value = when(_response.value.isNullOrEmpty()) {
-                    true -> OompaLoompaApiStatus.EMPTY
-                    false -> OompaLoompaApiStatus.DONE
-                }
+                _status.value = OompaLoompaApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = OompaLoompaApiStatus.ERROR
                 _response.value = ArrayList()
@@ -58,8 +49,5 @@ class OompaLoompaListViewModel : ViewModel() {
         _navigateToOompaLoompaDetail.value = null
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
 
 }

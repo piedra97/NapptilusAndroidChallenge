@@ -55,5 +55,5 @@ class OompaLoompaDiffCallback : DiffUtil.ItemCallback<OompaLoompa>() {
 }
 
 class OompaLoompaListener(val clickListener: (oompaLoompaId: Long) -> Unit) {
-    fun onClick(oompaLoompa: OompaLoompa) = clickListener(oompaLoompa.id)
+    fun onClick(oompaLoompa: OompaLoompa) = oompaLoompa.id?.let { clickListener(it) }
 }

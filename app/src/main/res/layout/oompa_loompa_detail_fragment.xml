@@ -1,13 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".oompaloompadetail.OompaLoompaDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.napptilusandroidchallenge.oompaloompadetail.OompaLoompaDetailViewModel" />
+    </data>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".oompaloompadetail.OompaLoompaDetailFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/oompaloompa_image"
+                android:layout_width="0dp"
+                android:layout_height="266dp"
+                android:scaleType="centerCrop"
+                app:oompaLoompaImage="@{viewModel.response}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/oompaloompa_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="#de000000"
+                android:textSize="39sp"
+                app:oompaLoompaName="@{viewModel.response}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_image"
+                tools:text="Oompa Loompa Name" />
+
+            <TextView
+                android:id="@+id/lastname_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_name_text"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/last_name_text_placeholder" />
+
+            <ImageView
+                android:id="@+id/status_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:oompaLoompaStatus="@{viewModel.status}"/>
+
+            <TextView
+                android:id="@+id/oompaloompa_surname_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/lastname_placeholder"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_name_text"
+                app:oompaLoompaLastName="@{viewModel.response}"
+                tools:text="Oompa Loompa Last Name" />
+
+            <TextView
+                android:id="@+id/profession_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/lastname_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/profession_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_profession_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_surname_text"
+                app:layout_constraintStart_toEndOf="@+id/profession_placeholder"
+                app:oompaLoompaProfession="@{viewModel.response}"
+                tools:text="Oompa Loompa profession" />
+
+            <TextView
+                android:id="@+id/gender_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/profession_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/gender_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_gender_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_profession_text"
+                app:layout_constraintStart_toEndOf="@id/gender_placeholder"
+                app:oompaLoompaGender="@{viewModel.response}"
+                tools:text="Oompa Loompa Gender" />
+
+            <TextView
+                android:id="@+id/age_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/gender_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/age_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_age_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_gender_text"
+                app:layout_constraintStart_toEndOf="@id/age_placeholder"
+                app:oompaLoompaAge="@{viewModel.response}"
+                tools:text="Oompa Loompa Age" />
+
+            <TextView
+                android:id="@+id/email_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/age_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/email_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_age_text"
+                app:layout_constraintStart_toEndOf="@id/email_placeholder"
+                app:oompaLoompaEmail="@{viewModel.response}"
+                tools:text="Oompa Loompa Email" />
+
+            <TextView
+                android:id="@+id/country_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/email_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/country_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_country_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_email_text"
+                app:layout_constraintStart_toEndOf="@id/country_placeholder"
+                app:oompaLoompaCountry="@{viewModel.response}"
+                tools:text="Oompa Loompa Country" />
+
+            <TextView
+                android:id="@+id/height_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/country_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/height_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_height_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_country_text"
+                app:layout_constraintStart_toEndOf="@id/height_placeholder"
+                app:oompaLoompaHeight="@{viewModel.response}"
+                tools:text="Oompa Loompa Height" />
+
+            <TextView
+                android:id="@+id/favorite_food_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/height_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/favorite_food_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_favorite_food_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_height_text"
+                app:layout_constraintStart_toEndOf="@id/favorite_food_placeholder"
+                app:oompaLoompaFavoriteFood="@{viewModel.response}"
+                tools:text="Oompa Favorite Food" />
+
+            <TextView
+                android:id="@+id/favorite_color_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/favorite_food_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/favorite_color_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_favorite_color_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_favorite_food_text"
+                app:layout_constraintStart_toEndOf="@id/favorite_color_placeholder"
+                app:oompaLoompaFavoriteColor="@{viewModel.response}"
+                tools:text="Oompa Loompa Favorite Color" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

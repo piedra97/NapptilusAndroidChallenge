@@ -12,70 +12,121 @@
             type="com.example.napptilusandroidchallenge.oompaloompalist.OompaLoompaListener" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> clickListener.onClick(oompaloompa)}">
+        android:onClick="@{() -> clickListener.onClick(oompaloompa)}"
+        android:elevation="6dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp">
 
 
-        <ImageView
-            android:id="@+id/oompaloompa_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:oompaLoompaImage="@{oompaloompa}"/>
+            <ImageView
+                android:id="@+id/oompaloompa_image"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:oompaLoompaImage="@{oompaloompa}" />
 
-        <TextView
-            android:id="@+id/oompaloompa_name"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Wednesday"
-            app:oompaLoompaName="@{oompaloompa}"/>
+            <TextView
+                android:id="@+id/name_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/name_text_placeholder"/>
 
-        <TextView
-            android:id="@+id/oompaloompa_last_name"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/oompaloompa_name"
-            app:layout_constraintTop_toBottomOf="@+id/oompaloompa_name"
-            tools:text="Excellent!!!"
-            app:oompaLoompaLastName="@{oompaloompa}"/>
+            <TextView
+                android:id="@+id/oompaloompa_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/name_placeholder"
+                app:layout_constraintTop_toTopOf="parent"
+                app:oompaLoompaName="@{oompaloompa}"
+                tools:text="Oompa Loompa Name" />
 
-        <TextView
-            android:id="@+id/oompaloompa_profession"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/oompaloompa_last_name"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/oompaloompa_last_name"
-            app:layout_constraintTop_toBottomOf="@+id/oompaloompa_last_name"
-            tools:text="Excellent!!!"
-            app:oompaLoompaProfession="@{oompaloompa}"/>
+            <TextView
+                android:id="@+id/lastname_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
+                app:layout_constraintTop_toBottomOf="@id/name_placeholder"
+                android:text="@string/last_name_text_placeholder" />
 
-        <TextView
-            android:id="@+id/oompaloompa_gender"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/oompaloompa_profession"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/oompaloompa_profession"
-            app:layout_constraintTop_toBottomOf="@+id/oompaloompa_profession"
-            tools:text="Excellent!!!"
-            app:oompaLoompaGender="@{oompaloompa}"/>
+            <TextView
+                android:id="@+id/oompaloompa_last_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/lastname_placeholder"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_name"
+                tools:text="Oompa Loompa Surname"
+                app:oompaLoompaLastName="@{oompaloompa}"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/profession_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
+                app:layout_constraintTop_toBottomOf="@id/lastname_placeholder"
+                android:text="@string/profession_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_profession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="#de000000"
+                app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/profession_placeholder"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_last_name"
+                tools:text="Oompa Loompa Profession"
+                app:oompaLoompaProfession="@{oompaloompa}"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

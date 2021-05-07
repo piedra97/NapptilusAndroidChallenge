@@ -34,7 +34,7 @@ data class OompaLoompa (
     @Json(name = "height")
     val height: Long,
     @Json(name = "id")
-    val id: Long
+    val id: Long?
 )
 
 data class Favorite (

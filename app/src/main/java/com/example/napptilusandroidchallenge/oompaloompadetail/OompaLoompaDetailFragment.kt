@@ -24,6 +24,10 @@ class OompaLoompaDetailFragment : Fragment() {
         val oompaLoompaDetailViewModelFactory = OompaLoompaDetailViewModelFactory(arguments.oompaLoompaKey)
         val oompaLoompaDetailViewModel = ViewModelProvider(this, oompaLoompaDetailViewModelFactory).get(OompaLoompaDetailViewModel::class.java)
 
+        binding.viewModel = oompaLoompaDetailViewModel
+
+        binding.lifecycleOwner = this
+
         return binding.root
     }
 }
