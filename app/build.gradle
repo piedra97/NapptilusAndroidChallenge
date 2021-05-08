@@ -79,4 +79,16 @@ dependencies {
     def room_version = "2.2.6"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+
+    // AndroidX Test - JVM testing
+    def android_x_test_ext_kotlin_runner_version = "1.1.1"
+    def android_x_test_core_version = "1.2.0"
+    def robo_electric_version = "4.3.1"
+    testImplementation "androidx.test.ext:junit-ktx:$android_x_test_ext_kotlin_runner_version"
+    testImplementation "androidx.test:core-ktx:$android_x_test_core_version"
+    testImplementation "org.robolectric:robolectric:$robo_electric_version"
+
+    def arch_testing_version = "2.0.0"
+    testImplementation "androidx.arch.core:core-testing:$arch_testing_version"
 }
