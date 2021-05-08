@@ -19,7 +19,10 @@ class OompaLoompaListFragment : Fragment() {
         // Inflate view and obtain an instance of the binding class
         val binding = OompaLoompaListFragmentBinding.inflate(layoutInflater)
 
-        val oompaLoompaListViewModel = ViewModelProvider(this).get(OompaLoompaListViewModel::class.java)
+        val activity = requireNotNull(this.activity)
+
+        val oompaLoompaListViewModelFactory = OompaLoompaListViewModelFactory(activity.application)
+        val oompaLoompaListViewModel = ViewModelProvider(this, oompaLoompaListViewModelFactory).get(OompaLoompaListViewModel::class.java)
 
         val adapter = OompaLoompaAdapter(OompaLoompaListener { oompaLoompaId ->
             oompaLoompaListViewModel.onOompaLoompaClicked(oompaLoompaId)

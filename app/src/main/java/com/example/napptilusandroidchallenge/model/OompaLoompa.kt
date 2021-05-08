@@ -1,5 +1,6 @@
 package com.example.napptilusandroidchallenge.model
 
+import com.example.napptilusandroidchallenge.database.DataBaseOompaLoompa
 import com.squareup.moshi.Json
 
 
@@ -11,6 +12,25 @@ data class OompaLoompaResponse (
     @Json(name = "results")
     val results: List<OompaLoompa>
 )
+
+fun OompaLoompaResponse.asDatabaseModel(): List<DataBaseOompaLoompa> {
+    return results.map {
+        DataBaseOompaLoompa(
+            id = it.id,
+            firstName = it.firstName,
+            lastName = it.lastName,
+            profession = it.profession,
+            imageUrl = it.image,
+            genderLetter = it.gender.letter,
+            age = it.age,
+            country = it.country,
+            email = it.email,
+            favoriteColor = it.favorite.color,
+            favoriteFood = it.favorite.food,
+            height = it.height
+        )
+    }
+}
 
 data class OompaLoompa (
     @Json(name = "first_name")
@@ -48,6 +68,14 @@ enum class Gender(val letter: String) {
     @Json(name = "F")
     Female("F"),
     @Json(name = "M")
-    Male("M")
+    Male("M");
+
+    companion object {
+        fun getGenderByLetter(letter: String) = when (letter) {
+            "F" -> Female
+            "M" -> Male
+            else -> Female
+        }
+    }
 }
 
