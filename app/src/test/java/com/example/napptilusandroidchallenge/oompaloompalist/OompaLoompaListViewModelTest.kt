@@ -5,20 +5,26 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.napptilusandroidchallenge.getOrAwaitValue
 import junit.framework.Assert.assertEquals
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class OompaLoompaListViewModelTest {
+
+    private lateinit var oompaLoompaListViewModel: OompaLoompaListViewModel
+
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
-    @Test
-    fun onOompaLoompaClicked_setNavigatedToOompaLoompaDetailId() {
+    @Before
+    fun setUpViewModel() {
+        oompaLoompaListViewModel = OompaLoompaListViewModel(ApplicationProvider.getApplicationContext())
+    }
 
-        // Given a fresh OompaLoompaListViewModel
-        val oompaLoompaListViewModel = OompaLoompaListViewModel(ApplicationProvider.getApplicationContext())
+    @Test
+    fun onOompaLoompaClicked_setNavigateToOompaLoompaDetailId() {
 
         //OompaLoompa list element with id 1 clicked
         oompaLoompaListViewModel.onOompaLoompaClicked(1)
@@ -28,5 +34,16 @@ class OompaLoompaListViewModelTest {
 
         // Check if oompa loompa id is equals to the one clicked
         assertEquals(value, 1)
+    }
+
+    @Test
+    fun onOompaLoompaDetailNavigated_setNavigateToOompaLoompaDetailNull() {
+
+        //Navigation to oompaloompa details completed
+        oompaLoompaListViewModel.onOompaLoompaDetailNavigated()
+
+        val value = oompaLoompaListViewModel.navigateOompaLoompaDetail.getOrAwaitValue()
+
+        assertEquals(value, null)
     }
 }
