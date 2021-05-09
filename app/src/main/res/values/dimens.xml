@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_view_list_element_elevation">6dp</dimen>
+    <dimen name="card_view_list_element_corner_radius">5dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="width_0">0dp</dimen>
+    <dimen name="image_item_list_size">110dp</dimen>
+    <dimen name="image_detail_size">266dp</dimen>
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="oompaloompa"
+            type="com.example.napptilusandroidchallenge.model.OompaLoompa" />
+        <variable
+            name="clickListener"
+            type="com.example.napptilusandroidchallenge.oompaloompalist.OompaLoompaListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(oompaloompa)}"
+        android:elevation="@dimen/card_view_list_element_elevation"
+        app:cardCornerRadius="@dimen/card_view_list_element_corner_radius"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:layout_marginBottom="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_8">
+
+
+            <ImageView
+                android:id="@+id/oompaloompa_image"
+                android:layout_width="@dimen/image_item_list_size"
+                android:layout_height="@dimen/image_item_list_size"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:oompaLoompaImage="@{oompaloompa}" />
+
+            <TextView
+                android:id="@+id/name_placeholder"
+                style="@style/DataInfoPlaceHolderTextView"
+                android:layout_marginTop="@dimen/margin_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/name_text_placeholder"/>
+
+            <TextView
+                android:id="@+id/oompaloompa_name"
+                style="@style/DataInfoTextView"
+                android:layout_marginTop="@dimen/margin_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/name_placeholder"
+                app:layout_constraintTop_toTopOf="parent"
+                app:oompaLoompaName="@{oompaloompa}"
+                tools:text="Oompa Loompa Name" />
+
+            <TextView
+                android:id="@+id/lastname_placeholder"
+                style="@style/DataInfoPlaceHolderTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
+                app:layout_constraintTop_toBottomOf="@id/name_placeholder"
+                android:text="@string/last_name_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_last_name"
+                style="@style/DataInfoTextView"
+                app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/lastname_placeholder"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_name"
+                tools:text="Oompa Loompa Surname"
+                app:oompaLoompaLastName="@{oompaloompa}"/>
+
+            <TextView
+                android:id="@+id/profession_placeholder"
+                style="@style/DataInfoPlaceHolderTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/oompaloompa_image"
+                app:layout_constraintTop_toBottomOf="@id/lastname_placeholder"
+                android:text="@string/profession_text_placeholder" />
+
+            <TextView
+                android:id="@+id/oompaloompa_profession"
+                style="@style/DataInfoTextView"
+                app:layout_constraintEnd_toEndOf="@+id/oompaloompa_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/profession_placeholder"
+                app:layout_constraintTop_toBottomOf="@+id/oompaloompa_last_name"
+                tools:text="Oompa Loompa Profession"
+                app:oompaLoompaProfession="@{oompaloompa}"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
