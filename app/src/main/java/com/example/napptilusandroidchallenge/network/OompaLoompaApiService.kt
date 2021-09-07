@@ -12,26 +12,10 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 
-private const val BASE_URL = "https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/"
-
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
-
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
-
 interface OompaLoompaApiService {
     @GET("oompa-loompas")
     suspend fun getOompaLoompasData(): OompaLoompaResponse
 
     @GET("oompa-loompas/{id}")
     suspend fun getOompaLoompaDetails(@Path("id") id: Long): OompaLoompa
-}
-
-object OompaLoompaApi {
-    val retrofitService : OompaLoompaApiService by lazy {
-        retrofit.create(OompaLoompaApiService::class.java) }
 }

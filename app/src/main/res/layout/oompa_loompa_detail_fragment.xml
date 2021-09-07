@@ -24,7 +24,6 @@
                 android:layout_width="@dimen/width_0"
                 android:layout_height="@dimen/image_detail_size"
                 android:scaleType="centerCrop"
-                app:oompaLoompaImage="@{viewModel.response}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +32,6 @@
             <TextView
                 android:id="@+id/oompaloompa_name_text"
                 style="@style/DataInfoBigTitleTextView"
-                app:oompaLoompaName="@{viewModel.response}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_image"
                 tools:text="Oompa Loompa Name" />
@@ -62,7 +60,6 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@id/lastname_placeholder"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_name_text"
-                app:oompaLoompaLastName="@{viewModel.response}"
                 tools:text="Oompa Loompa Last Name" />
 
             <TextView
@@ -79,7 +76,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_surname_text"
                 app:layout_constraintStart_toEndOf="@+id/profession_placeholder"
-                app:oompaLoompaProfession="@{viewModel.response}"
                 tools:text="Oompa Loompa profession" />
 
             <TextView
@@ -96,7 +92,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_profession_text"
                 app:layout_constraintStart_toEndOf="@id/gender_placeholder"
-                app:oompaLoompaGender="@{viewModel.response}"
                 tools:text="Oompa Loompa Gender" />
 
             <TextView
@@ -113,7 +108,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_gender_text"
                 app:layout_constraintStart_toEndOf="@id/age_placeholder"
-                app:oompaLoompaAge="@{viewModel.response}"
                 tools:text="Oompa Loompa Age" />
 
             <TextView
@@ -130,7 +124,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_age_text"
                 app:layout_constraintStart_toEndOf="@id/email_placeholder"
-                app:oompaLoompaEmail="@{viewModel.response}"
                 tools:text="Oompa Loompa Email" />
 
             <TextView
@@ -147,7 +140,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_email_text"
                 app:layout_constraintStart_toEndOf="@id/country_placeholder"
-                app:oompaLoompaCountry="@{viewModel.response}"
                 tools:text="Oompa Loompa Country" />
 
             <TextView
@@ -164,7 +156,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_country_text"
                 app:layout_constraintStart_toEndOf="@id/height_placeholder"
-                app:oompaLoompaHeight="@{viewModel.response}"
                 tools:text="Oompa Loompa Height" />
 
             <TextView
@@ -181,7 +172,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_height_text"
                 app:layout_constraintStart_toEndOf="@id/favorite_food_placeholder"
-                app:oompaLoompaFavoriteFood="@{viewModel.response}"
                 tools:text="Oompa Favorite Food" />
 
             <TextView
@@ -198,7 +188,6 @@
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@+id/oompaloompa_favorite_food_text"
                 app:layout_constraintStart_toEndOf="@id/favorite_color_placeholder"
-                app:oompaLoompaFavoriteColor="@{viewModel.response}"
                 tools:text="Oompa Loompa Favorite Color" />
 
 

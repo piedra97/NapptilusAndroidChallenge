@@ -5,12 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.napptilusandroidchallenge.model.OompaLoompa
-import com.example.napptilusandroidchallenge.network.OompaLoompaApi
 import com.example.napptilusandroidchallenge.network.OompaLoompaApiStatus
+import com.example.napptilusandroidchallenge.network.either
+import com.example.napptilusandroidchallenge.usecases.GetOompaLoompaDetailsUseCase
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
-class OompaLoompaDetailViewModel(oompaLoompaId: Long) : ViewModel() {
+class OompaLoompaDetailViewModel(
+    private val getOompaLoompaDetailsUseCase: GetOompaLoompaDetailsUseCase,
+    oompaLoompaId: Long
+) : ViewModel() {
 
     private val _response = MutableLiveData<OompaLoompa>()
     val response: LiveData<OompaLoompa>
@@ -27,13 +30,16 @@ class OompaLoompaDetailViewModel(oompaLoompaId: Long) : ViewModel() {
     private fun getOompaLoompaDetails(oompaLoompaId: Long) {
         viewModelScope.launch {
             _status.value = OompaLoompaApiStatus.LOADING
-            try {
-                _response.value = OompaLoompaApi.retrofitService.getOompaLoompaDetails(oompaLoompaId)
-                _status.value = OompaLoompaApiStatus.DONE
-            } catch (e: Exception) {
-                _status.value = OompaLoompaApiStatus.ERROR
-                _response.value = null
-            }
+            getOompaLoompaDetailsUseCase(oompaLoompaId).either(
+                onSuccess = {oompaLoompa ->
+                    _status.value = OompaLoompaApiStatus.DONE
+                    _response.value = oompaLoompa
+                },
+                onFailure = {
+                    _status.value = OompaLoompaApiStatus.ERROR
+                    _response.value = null
+                }
+            )
         }
     }
 }

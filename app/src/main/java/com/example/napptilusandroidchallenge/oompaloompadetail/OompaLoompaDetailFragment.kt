@@ -1,12 +1,13 @@
 package com.example.napptilusandroidchallenge.oompaloompadetail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.napptilusandroidchallenge.databinding.OompaLoompaDetailFragmentBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class OompaLoompaDetailFragment : Fragment() {
 
@@ -19,8 +20,7 @@ class OompaLoompaDetailFragment : Fragment() {
 
         val arguments = OompaLoompaDetailFragmentArgs.fromBundle(requireArguments())
 
-        val oompaLoompaDetailViewModelFactory = OompaLoompaDetailViewModelFactory(arguments.oompaLoompaKey)
-        val oompaLoompaDetailViewModel = ViewModelProvider(this, oompaLoompaDetailViewModelFactory).get(OompaLoompaDetailViewModel::class.java)
+        val oompaLoompaDetailViewModel: OompaLoompaDetailViewModel by viewModel { parametersOf(arguments.oompaLoompaKey)}
 
         binding.viewModel = oompaLoompaDetailViewModel
 

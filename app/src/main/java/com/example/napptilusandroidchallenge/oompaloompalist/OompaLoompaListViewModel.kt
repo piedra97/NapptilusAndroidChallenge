@@ -1,19 +1,20 @@
 package com.example.napptilusandroidchallenge.oompaloompalist
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.napptilusandroidchallenge.database.getDataBase
-import com.example.napptilusandroidchallenge.model.OompaLoompa
-import com.example.napptilusandroidchallenge.network.OompaLoompaApi
+import com.example.napptilusandroidchallenge.model.OompaLoompaResponse
+import com.example.napptilusandroidchallenge.model.uimodels.OompaLoompaUIModel
 import com.example.napptilusandroidchallenge.network.OompaLoompaApiStatus
-import com.example.napptilusandroidchallenge.repository.OompaLoompasRepository
+import com.example.napptilusandroidchallenge.network.either
+import com.example.napptilusandroidchallenge.oompaloompalist.mapper.OompaLoompaResponseMapper
+import com.example.napptilusandroidchallenge.usecases.GetOompaLoompaDataUseCase
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
-class OompaLoompaListViewModel(application: Application) : ViewModel() {
+class OompaLoompaListViewModel(
+    private val getOompaLoompaDataUseCase: GetOompaLoompaDataUseCase
+) : ViewModel() {
 
     private val _navigateToOompaLoompaDetail = MutableLiveData<Long>()
     val navigateOompaLoompaDetail
@@ -23,9 +24,11 @@ class OompaLoompaListViewModel(application: Application) : ViewModel() {
     val status: LiveData<OompaLoompaApiStatus>
         get() = _status
 
-    private val oompaLoompasRepository = OompaLoompasRepository(getDataBase(application))
+    private val _response = MutableLiveData<List<OompaLoompaUIModel>>()
+    val response: LiveData<List<OompaLoompaUIModel>>
+        get() = _response
 
-    val response = oompaLoompasRepository.oompaLoompas
+    private val mapper = OompaLoompaResponseMapper()
 
     init {
         getOompaLoompaData()
@@ -34,14 +37,19 @@ class OompaLoompaListViewModel(application: Application) : ViewModel() {
     fun getOompaLoompaData() {
         viewModelScope.launch {
             _status.value = OompaLoompaApiStatus.LOADING
-            try {
-                oompaLoompasRepository.refreshOompaLoompas()
-                _status.value = OompaLoompaApiStatus.DONE
-            } catch (e: Exception) {
-                _status.value = OompaLoompaApiStatus.ERROR
-            }
+            getOompaLoompaDataUseCase().either(
+                onSuccess = { oompaLoompaResponse ->
+                    _status.value = OompaLoompaApiStatus.DONE
+                    _response.value = mapOompaLoompaResponse(oompaLoompaResponse)
+                },
+                onFailure = { _status.value = OompaLoompaApiStatus.ERROR }
+            )
         }
     }
+
+    private fun mapOompaLoompaResponse(oompaLoompaResponse: OompaLoompaResponse): List<OompaLoompaUIModel>? =
+        mapper.map(oompaLoompaResponse)
+
 
     fun onOompaLoompaClicked(id: Long) {
         _navigateToOompaLoompaDetail.value = id

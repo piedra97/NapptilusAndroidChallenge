@@ -91,4 +91,11 @@ dependencies {
 
     def arch_testing_version = "2.0.0"
     testImplementation "androidx.arch.core:core-testing:$arch_testing_version"
+
+    // Current version
+    def koin_version= "3.1.2"
+    // Koin main features for Android (Scope,ViewModel ...)
+    implementation "io.insert-koin:koin-android:$koin_version"
+    // Koin Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
 }
